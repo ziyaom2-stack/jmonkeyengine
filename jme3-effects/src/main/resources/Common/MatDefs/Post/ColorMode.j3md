@@ -1,0 +1,20 @@
+MaterialDef ColorMode {
+    MaterialParameters {
+        Int BoundDrawBuffer
+        Int NumSamples
+        Texture2D Texture
+        // 0 = GRAYSCALE, 1 = INVERT_COLORS
+        Int Mode
+    }
+    Technique {
+        VertexShader   GLSL300 GLSL150 GLSL100 : Common/MatDefs/Post/Post.vert
+        FragmentShader GLSL300 GLSL150 GLSL100 : Common/MatDefs/Post/ColorMode.frag
+
+        WorldParameters {
+        }
+
+        Defines {
+            BOUND_DRAW_BUFFER: BoundDrawBuffer
+        }
+    }
+}
