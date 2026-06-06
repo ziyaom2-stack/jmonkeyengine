@@ -1,0 +1,22 @@
+MaterialDef Vignette {
+    MaterialParameters {
+        Int BoundDrawBuffer
+        Int NumSamples
+        Texture2D Texture
+        Float InnerRadius
+        Float OuterRadius
+        Float Intensity
+        Vector4 Color
+    }
+    Technique {
+        VertexShader   GLSL300 GLSL150 GLSL100 : Common/MatDefs/Post/Post.vert
+        FragmentShader GLSL300 GLSL150 GLSL100 : Common/MatDefs/Post/Vignette.frag
+
+        WorldParameters {
+        }
+
+        Defines {
+            BOUND_DRAW_BUFFER: BoundDrawBuffer
+        }
+    }
+}
